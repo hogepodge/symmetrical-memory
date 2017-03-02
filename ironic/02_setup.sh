@@ -38,6 +38,9 @@ sudo yum install -y python-docker-py
 sudo systemctl stop libvirtd.service
 sudo systemctl disable libvirtd.service
 
+# update pip and everything else
+pip install --upgrade pip virtualenv setuputils
+
 # Prepare the virtualenv
 mkdir kolla
 cd kolla
@@ -48,6 +51,7 @@ pip install tox ansible
 #Download and install kolla from source in a virtual environment
 git clone https://github.com/openstack/kolla
 cd kolla
+pip install --upgrade
 pip install -r requirements.txt
 pip install .
 cd ..
