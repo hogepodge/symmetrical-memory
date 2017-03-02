@@ -68,7 +68,7 @@ curl http://tarballs.openstack.org/ironic-python-agent/coreos/files/coreos_produ
 
 # copy configuration
 cp kolla-ansible/ansible/inventory/* .
-cp ~/symmetrical-memory/globals.yml globals.yml
+cp ~/symmetrical-memory/ironic/globals.yml globals.yml
 
 # Install and start the docker registry
 sudo docker run -d --name registry --restart=always -p 4000:5000 \
