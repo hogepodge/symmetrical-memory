@@ -1,6 +1,6 @@
 # begin by installing system dependencies
 sudo yum install -y epel-release
-sugo yum install -y git vim python-pip python-devel \
+sudo yum install -y git vim python-pip python-devel \
   libffi-devel gcc openssl-devel ansible ntp python-virtualenv \
   pyton-netaddr screen
 
