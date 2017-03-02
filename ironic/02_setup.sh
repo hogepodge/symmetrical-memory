@@ -22,7 +22,7 @@ sudo tee /etc/systemd/system/docker.service.d/kolla.conf <<-'EOF'
 [Service]
 MountFlags=shared
 ExecStart=
-ExecStart=/usr/bin/dockerd --insecure-registry 192.168.1.23:4000
+ExecStart=/usr/bin/dockerd --insecure-registry 192.168.11.131:4000
 EOF
 
 # Reload docker to capture the system changes
