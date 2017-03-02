@@ -39,7 +39,7 @@ sudo systemctl stop libvirtd.service
 sudo systemctl disable libvirtd.service
 
 # update pip and everything else
-pip install --upgrade pip virtualenv setuputils
+sudo pip install --upgrade pip virtualenv setuputils
 
 # Prepare the virtualenv
 mkdir kolla
