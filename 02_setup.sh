@@ -1,5 +1,7 @@
 # begin by installing system dependencies
-sudo yum install -y git vim epel-release python-pip python-devel libffi-devel gcc openssl-devel ansible ntp python-virtualenv screen
+sudo yum install -y git vim epel-release python-pip python-devel \
+  libffi-devel gcc openssl-devel ansible ntp python-virtualenv \
+  pyton-netaddr screen
 
 # install and start ntp for system synchronization
 sudo systemctl enable ntpd.service
@@ -35,12 +37,14 @@ sudo yum install -y python-docker-py
 sudo systemctl stop libvirtd.service
 sudo systemctl disable libvirtd.service
 
-# Download and install kolla from source in a virtual environment
+# Prepare the virtualenv
 mkdir kolla
 cd kolla
 virtualenv .kolla
 source .kolla/bin/activate
-pip install tox 
+pip install tox ansible
+
+#Download and install kolla from source in a virtual environment
 git clone https://github.com/openstack/kolla
 cd kolla
 pip install -r requirements.txt
@@ -54,5 +58,19 @@ cd ..
 sudo cp -r kolla-ansible/etc/kolla /etc/kolla/
 cp kolla-ansible/ansible/inventory/* .
 
+# download the ironic agent
+mkdir config
+mkdir config/ironic
+curl http://tarballs.openstack.org/ironic-python-agent/coreos/files/coreos_production_pxe.vmlinuz \
+  -o config/ironic/ironic-agent.kernel -4
+curl http://tarballs.openstack.org/ironic-python-agent/coreos/files/coreos_production_pxe_image-oem.cpio.gz \
+  -o config/ironic/ironic-agent.initramfs -4
+
+# copy configuration
+cp kolla-ansible/ansible/inventory/* .
+cp ~/symmetrical-memory/globals.yml globals.yml
+
 # Install and start the docker registry
-sudo ./kolla/tools/start-registry
+sudo docker run -d --name registry --restart=always -p 4000:5000 \
+  -v registry:/var/lib/registry registry:2 
+
