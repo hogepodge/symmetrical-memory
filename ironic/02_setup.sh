@@ -77,5 +77,5 @@ cp ~/symmetrical-memory/ironic/globals.yml globals.yml
 
 # Install and start the docker registry
 sudo docker run -d --name registry --restart=always -p 4000:5000 \
-  -v registry:/registry registry:2 
+  -v /registry:/var/lib/registry registry:2 
 
