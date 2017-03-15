@@ -23,7 +23,7 @@ sudo tee /etc/systemd/system/docker.service.d/kolla.conf <<-'EOF'
 [Service]
 MountFlags=shared
 ExecStart=
-ExecStart=/usr/bin/dockerd --insecure-registry 192.168.1.23:4000
+ExecStart=/usr/bin/dockerd --insecure-registry 192.168.1.6:4000
 EOF
 
 # Reload docker to capture the system changes
@@ -77,5 +77,5 @@ cp ~/symmetrical-memory/ironic/globals.yml globals.yml
 
 # Install and start the docker registry
 sudo docker run -d --name registry --restart=always -p 4000:5000 \
-  -v registry:/var/lib/registry registry:2 
+  -v registry:/registry registry:2 
 
