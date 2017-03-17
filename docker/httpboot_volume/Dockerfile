@@ -10,4 +10,5 @@ ADD /ipa.vmlinuz /data/ipa.vmlinuz
 ADD /ipa.vmlinuz.sha256 /data/ipa.vmlinuz.sha256
 ADD /ipxe.lkrn /data/ipxe.lkrn
 ADD /ipxe.lkrn /data/ipxe.pxe
-ENTRYPOINT ["cp", "-r", "/data/*", "/httpboot/."]
+ADD /bootstrap.sh /bootstrap.sh
+ENTRYPOINT ["/bootstrap.sh"]
