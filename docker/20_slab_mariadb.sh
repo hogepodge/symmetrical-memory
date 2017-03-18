@@ -1,6 +1,7 @@
 docker run -d \
+           --env-file ./config \
            --hostname slab_mariadb \
            --name slab_mariadb \
-           -e MYSQL_ROOT_PASSWORD="$MYSQL_ROOT_PASSWORD" \
+           --env-file config \
            mariadb:10.1.22
 

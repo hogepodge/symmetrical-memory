@@ -12,3 +12,5 @@ RUN tox -edocs
 RUN tox -egenconfig
 RUN pip install -r requirements.txt 
 RUN pip install .
+RUN mkdir -p /etc/ironic
+RUN cp -r /ironic/etc/ironic/* /etc/ironic/
