@@ -5,6 +5,7 @@ RUN yum install -y python-devel openssl-devel python-pip mysql-devel libxml2-dev
 RUN pip install pip --upgrade
 RUN pip install -U tox
 RUN pip install python-ironicclient
+RUN pip install pymysql
 RUN git clone https://github.com/openstack/ironic.git
 WORKDIR /ironic
 RUN pip install -U virtualenv
@@ -14,3 +15,4 @@ RUN pip install -r requirements.txt
 RUN pip install .
 RUN mkdir -p /etc/ironic
 RUN cp -r /ironic/etc/ironic/* /etc/ironic/
+ADD /ironic.conf.sh /ironic.conf.sh
