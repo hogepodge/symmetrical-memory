@@ -8,3 +8,4 @@ docker build -t slab_ironic_api ironic_api/.
 docker build -t slab_ironic_conductor ironic_conductor/.
 docker build -t slab_ironic_dbsync ironic_dbsync/.
 docker build -t slab_test test/.
+docker build -t slab_dib dib/.
