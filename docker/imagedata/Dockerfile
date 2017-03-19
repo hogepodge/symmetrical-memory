@@ -1,6 +1,8 @@
 FROM alpine:3.4
 MAINTAINER Chris Hoge (chris@openstack.org)
 RUN mkdir /data
+RUN mkdir /data/tmp
+RUN mkdir /data/cache
 
 RUN mkdir /data/httpboot
 RUN mkdir /data/httpboot/pxelinux.cfg

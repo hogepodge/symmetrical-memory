@@ -50,6 +50,27 @@ the scripts in order. To tear down an installation, use the
 
 This set of scripts assumes a CentOS 7 installation
 
+===========
+Limitations
+===========
+
+So many, just a few off the top of my head:
+
+* In its current state, the application is heavily programmed for my
+  working environment. I'm working on fixing this and making it a more
+  generally useful system that works by configuration rather than
+  magic variables in code. Sorry about that.
+* I've only verified that this works with Ironic deploy agents, rather
+  than Ironic deploy tools. What's the difference? To over-simplify,
+  iSCSI. I have not yet successfully booted an instance using a tool
+  (which uses iSCSI on the conductor to send images over) vs an agent
+  (which pulls image data and writes it to disk). This is a work in
+  progress that will sadly stay in progress for a while, as the agents
+  get the job I need done, done.
+* Security? What security? If you want this to be the base for a real
+  operations tool, you have some work ahead of you. I believe that you
+  can do it.
+
 ===============
 Acknowledgments
 ===============

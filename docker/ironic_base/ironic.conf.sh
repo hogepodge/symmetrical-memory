@@ -22,7 +22,7 @@ pxe_bootfile_name = undionly.kpxe
 ipxe_enabled = true
 ipxe_boot_script = /etc/ironic/boot.ipxe
 instance_master_path = /imagedata/httpboot/master_images
-images_path = /imagedata/tmp
+images_path = /imagedata/cache
 
 [deploy]
 http_url = http://192.168.30.1:8080/
