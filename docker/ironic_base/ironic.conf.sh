@@ -2,7 +2,7 @@ cat > /etc/ironic/ironic.conf <<-EOF
 [DEFAULT]
 enabled_network_interfaces = noop
 enabled_drivers = agent_ipmitool,pxe_ssh,pxe_ipmitool
-debug = true
+debug = $IRONIC_DEBUG
 auth_strategy = noauth
 tempdir = /imagedata/tmp
 
