@@ -16,3 +16,7 @@ docker rm slab_mariadb
 docker stop slab_rabbit
 docker rm slab_rabbit
 
+docker stop slab_dnsmasq
+docker rm slab_dnsmasq
+
+

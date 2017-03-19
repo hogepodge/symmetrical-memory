@@ -4,7 +4,7 @@ RUN mkdir /data
 
 RUN mkdir /data/httpboot
 RUN mkdir /data/httpboot/pxelinux.cfg
-RUN mkdir /data/httpboot/master-images
+RUN mkdir /data/httpboot/master_images
 ADD /httpboot/boot.ipxe /data/httpboot/boot.ipxe
 ADD /httpboot/ipa.initramfs /data/httpboot/ipa.initramfs
 ADD /httpboot/ipa.initramfs.sha256 /data/httpboot/ipa.initramfs.sha256
@@ -15,7 +15,7 @@ ADD /httpboot/ipxe.lkrn /data/httpboot/ipxe.pxe
 
 RUN mkdir /data/tftpboot
 RUN mkdir /data/tftpboot/pxelinux.cfg
-RUN mkdir /data/tftpboot/master-images
+RUN mkdir /data/tftpboot/master_images
 ADD /tftpboot/map-file /data/tftpboot/map-file
 ADD /tftpboot/pxelinux.0 /data/tftpboot/pxelinux.0
 ADD /tftpboot/undionly.kpxe /data/tftpboot/undionly.kpxe
