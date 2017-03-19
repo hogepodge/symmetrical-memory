@@ -1,12 +1,14 @@
 cat > /etc/ironic/ironic.conf <<-EOF
 [DEFAULT]
 enabled_network_interfaces = noop
-enabled_drivers = agent_ipmitool,agent_ilo,agent_ucs,pxe_ssh,pxe_ipmitool,pxe_ilo
+enabled_drivers = agent_ipmitool,pxe_ssh,pxe_ipmitool
 debug = false
+auth_strategy = noauth
 
+[oslo_messaging_rabbit]
+rabbit_host = slab_rabbit
 rabbit_userid = $RABBITMQ_DEFAULT_USER
 rabbit_password = $RABBITMQ_DEFAULT_PASS
-auth_strategy = noauth
 
 [pxe]
 pxe_append_params = systemd.journald.forward_to_console=yes

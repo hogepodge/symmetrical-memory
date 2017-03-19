@@ -1,0 +1,10 @@
+./00_build.sh
+./10_slab_rabbit.sh
+./20_slab_mariadb.sh
+./30_slab_tftpboot_volume.sh
+./40_slab_httpboot_volume.sh
+./50_slab_tftp.sh
+./60_slab_nginx.sh
+./70_slab_ironic_dbsync.sh
+./80_slab_ironic_api.sh
+./90_slab_ironic_conductor.sh
