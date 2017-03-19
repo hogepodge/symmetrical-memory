@@ -10,8 +10,6 @@ docker rm slab_nginx
 docker stop slab_tftp
 docker rm slab_tftp
 
-docker volume rm slab_tftp
-
 docker stop slab_mariadb
 docker rm slab_mariadb
 

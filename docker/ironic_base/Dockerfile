@@ -15,4 +15,5 @@ RUN pip install -r requirements.txt
 RUN pip install .
 RUN mkdir -p /etc/ironic
 RUN cp -r /ironic/etc/ironic/* /etc/ironic/
+ADD /boot.ipxe /etc/ironic/boot.ipxe
 ADD /ironic.conf.sh /ironic.conf.sh
