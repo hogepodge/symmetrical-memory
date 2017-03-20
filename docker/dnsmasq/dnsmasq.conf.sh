@@ -1,20 +1,18 @@
+cat > /etc/dnsmasq.conf <<-EOF
+# allow config volume for additional options
+conf-dir=/etc/dnsmasq.d
+
 # explicitly declare which interfaces dnsmasq will run on
 # this is to keep dnsmasq from competing with other
 # dhcp and dns services on the public network
 # the values below are for the out-of-band (oob) and data networks
-interface=eno1
-interface=enp0s20f0u4
+interface=$IPMI_INTERFACE
+interface=$DATA_INTERFACE
 bind-interfaces
 
 # Assign the dhcp range for the oob and data networks
-dhcp-range=192.168.20.10,192.168.20.20,12h
-dhcp-range=192.168.30.10,192.168.30.20,12h
-
-# Explicitly assign addresses for the BMC interfaces
-# on the oob network
-dhcp-host=0c:c4:7a:ca:3a:3e,192.168.20.11
-dhcp-host=0c:c4:7a:ca:3a:4b,192.168.20.12
-dhcp-host=0c:c4:7a:9a:3c:64,192.168.20.13
+dhcp-range=$IPMI_RANGE
+dhcp-range=$DATA_RANGE
 
 # Boot for Etherboot gPXE. The idea is to send two different
 # filenames, the first loads gPXE, and the second tells gPXE what to
@@ -24,4 +22,7 @@ dhcp-boot=tag:gpxe,/ipxe.pxe
 
 dhcp-match=set:ipxe,175 # iPXE sends a 175 option.
 dhcp-boot=tag:!ipxe,/undionly.kpxe
-dhcp-boot=http://192.168.30.1:8080/boot.ipxe
+dhcp-boot=$BOOT_IPXE_ENDPOINT
+EOF
+
+echo "$DNSMASQ_ADDITIONAL" >> /etc/dnsmasq

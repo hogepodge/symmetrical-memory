@@ -1,20 +1,19 @@
-# Starts dnsmasq. Currentlty, this is one of the most badly written
-# parts of this application deployment. The added dnsmasq.conf file
-# encodes way too much information about the deployment target. This
-# will be fixed in a future version, but I leave this message here
-# for shame in case I don't actually get around to it. dnsmasq in
-# this instance is service thre purposes:
+# dnsmasq in this instance serves three purposes:
 # * Hand out management ip addresses on the out-of-band management
-#   network.
-# * Assist in network booting over the data network.
-# * Serve up ip addreses to the data network.
-# Still working out how best to tackle the configuration of these
-# items in a rational and usable way.
+#   network. This is configured in the dnsmasq_config file and
+#   mounted as a volume file, as well as in the config file.
+# * Assist in network booting over the data network, with variables
+#   set in the config file.
+# * Serve up ip addresses to the data network, also set up in
+#   the config file.
+source ./config
 docker run -d\
+           --env-file ./config \
            --rm \
            --name slab_dnsmasq \
            -p 53:53 \
            -p 53:53/udp \
            --cap-add=NET_ADMIN \
            --net=host \
+           -v $PWD/dnsmasq_config:/etc/dnsmasq.d/ip_assignment.conf \
            slab_dnsmasq

@@ -1,5 +1,20 @@
+# RabbitMQ credentials
 RABBITMQ_DEFAULT_USER=guest
 RABBITMQ_DEFAULT_PASS=rabbitpass
+
+# MariaDB credentials
 MYSQL_ROOT_PASSWORD=mysqlpass
 MYSQL_IRONIC_PASSWORD=ironicpass
+
+# dnsmasq settings
+IPMI_INTERFACE=eno1
+DATA_INTERFACE=enp0s20f0u4
+IPMI_RANGE=192.168.20.10,192.168.20.20,12h
+DATA_RANGE=192.168.30.10,192.168.30.20,12h
+BOOT_IPXE_ENDPOINT=http://192.168.30.1:8080/boot.ipxe
+DNSMASQ_ADDITIONAL="dhcp-host=0c:c4:7a:ca:3a:3e,192.168.20.11 \
+dhcp-host=0c:c4:7a:ca:3a:4b,192.168.20.12 \
+dhcp-host=0c:c4:7a:9a:3c:64,192.168.20.13"
+
+# Ironic Settings
 IRONIC_DEBUG=false
