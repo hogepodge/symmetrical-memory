@@ -24,7 +24,7 @@
 # override any other image data dropped in by the Ironic Conductor
 docker volume create --name slab_imagedata
 docker run -v slab_imagedata:/imagedata \
-           -id \
+           -it \
            --name slab_imagedata \
            --rm \
            slab_imagedata

@@ -1,9 +1,9 @@
-# Starts the Ironic Conductor service. This container works by loading in
-# RabbitMQ and MariaDB data through the environment variables, the
-# writing the /etc/ironic/ironic.conf file before starting the 
-# Ironic Conductor service. It also adds the image volume storage,
-# allowing the conductor to scribble all over the server storage of tftp
-# and nginx as needed.
+# Starts the Ironic Conductor service. This container works by connecting
+# ty RabbitMQ and MariaDB data through the environment variables config,
+# then writing the /etc/ironic/ironic.conf file before starting the 
+# Ironic Conductor service. It also attaches the shared image volume
+# storage, allowing the conductor to write to the http (nginx) and tftp
+# server spaces
 docker run -d \
            --env-file ./config \
            --name slab_ironic_conductor \
