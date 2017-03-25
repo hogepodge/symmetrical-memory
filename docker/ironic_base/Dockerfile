@@ -11,5 +11,5 @@ RUN yum install -y git epel-release python-pip vim \
  && pip install . \
  && mkdir -p /etc/ironic \
  && cp -r /ironic/etc/ironic/* /etc/ironic/
-ADD /boot.ipxe /etc/ironic/boot.ipxe \
+ADD /boot.ipxe /etc/ironic/boot.ipxe
 ADD /ironic.conf.sh /ironic.conf.sh
