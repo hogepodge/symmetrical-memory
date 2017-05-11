@@ -2,7 +2,7 @@
 sudo yum install -y epel-release
 sudo yum install -y git vim python-pip python-devel \
   libffi-devel gcc openssl-devel ansible ntp python-virtualenv \
-  pyton-netaddr screen
+  python-netaddr screen
 
 # install and start ntp for system synchronization
 sudo systemctl enable ntpd.service
